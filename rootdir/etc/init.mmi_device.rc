@@ -5,6 +5,24 @@ on post-fs-data
    # Sensor Hub calibration data directory
    mkdir /data/misc/sensorhub 0770 system compass
 
+   # Egistec fingerprint feature
+   mkdir /data/misc/egistec 0700 system system
+   chmod 0660 /sys/devices/platform/egis_input/navigation_event
+   chmod 0660 /sys/devices/platform/egis_input/navigation_enable
+   chmod 0660 /sys/devices/soc/0.et320/etspi_enable
+   chown system system /sys/devices/platform/egis_input/navigation_enable
+   chown system system /sys/devices/platform/egis_input/navigation_event
+   chown system system /sys/devices/soc/0.et320/etspi_enable
+
+# Egistec fingerprint fp daemon start
+service etsd /system/bin/etsd
+   user system
+   class late_start
+
+on property:ro.hw.fps=false
+   stop etsd
+   stop fingerprintd
+
 on boot
    # STML0 driver parameter permissions
    chown root oem_5004 /sys/module/stml0xx/parameters/irq_disable
@@ -50,9 +68,50 @@ on boot
    chown system system /sys/class/i2c-dev/i2c-6/device/6-0049/set_delay_ms
    chmod 0660 /sys/class/i2c-dev/i2c-6/device/6-0049/set_delay_ms
 
+   #change permission for capsensor
+   chmod 0660 /sys/class/capsense/enable
+   chown system system sys/class/capsense/enable
+   chmod 0660 /sys/class/capsense/reset
+   chown system system sys/class/capsense/reset
+
+   #change permissions for other sensors
+   chown system system "/sys/class/sensors/bma25x-accel/enable"
+   chown system system "/sys/class/sensors/bma25x-accel/poll_delay"
+   chown system system "/sys/devices/virtual/bst/ACC/int_mode"
+   chown system system "/sys/devices/virtual/bst/ACC/flush"
+   chown system system "/sys/devices/virtual/bst/ACC/flatdown"
+   chown system system "/sys/kernel/range/als_enable"
+   chown system system "/sys/kernel/range/set_delay_ms"
+   chown system system "/sys/kernel/range/enable_sar"
+   chown system system "/sys/kernel/range/enable_stow"
+   chown system system "/sys/kernel/range/near"
+   chown system system "/sys/kernel/range/als_lux"
+   chown system system "/sys/kernel/range/flush"
+   chown system system "/sys/class/sensors/mxg3300_compass/enable"
+   chown system system "/sys/class/sensors/mxg3300_compass/flush"
+   chown system system "/sys/class/sensors/mxg3300_compass/poll_delay"
+   chown system system "/sys/class/sensors/mxg3300_compass/self_test"
+
+   chmod 0664 "/sys/class/sensors/bma25x-accel/enable"
+   chmod 0664 "/sys/class/sensors/bma25x-accel/poll_delay"
+   chmod 0664 "/sys/devices/virtual/bst/ACC/int_mode"
+   chmod 0664 "/sys/devices/virtual/bst/ACC/flush"
+   chmod 0664 "/sys/devices/virtual/bst/ACC/flatdown"
+   chmod 0664 "/sys/kernel/range/als_enable"
+   chmod 0664 "/sys/kernel/range/set_delay_ms"
+   chmod 0664 "/sys/kernel/range/enable_sar"
+   chmod 0664 "/sys/kernel/range/enable_stow"
+   chmod 0664 "/sys/kernel/range/near"
+   chmod 0664 "/sys/kernel/range/als_lux"
+   chmod 0664 "/sys/kernel/range/flush"
+   chmod 0664 "/sys/class/sensors/mxg3300_compass/enable"
+   chmod 0664 "/sys/class/sensors/mxg3300_compass/flush"
+   chmod 0664 "/sys/class/sensors/mxg3300_compass/poll_delay"
+   chmod 0664 "/sys/class/sensors/mxg3300_compass/self_test"
+
 # Start Sensor daemon
 service motosh /system/vendor/bin/motosh boot
-    class main
-    user compass
-    group compass misc input
-    oneshot
+   class main
+   user compass
+   group compass misc input
+   oneshot

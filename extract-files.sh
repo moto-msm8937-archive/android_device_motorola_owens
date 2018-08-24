@@ -17,7 +17,7 @@
 
 set -e
 
-export DEVICE=cedric
+export DEVICE=perry
 export DEVICE_COMMON=msm8953-common
 export VENDOR=motorola
 
