@@ -25,16 +25,16 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920
 
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
+
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := perry
 PRODUCT_NAME := lineage_perry
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
-
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
-
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto E4"
