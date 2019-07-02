@@ -15,3 +15,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_perry.mk
+    $(LOCAL_DIR)/aosp_perry.mk
