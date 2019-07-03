@@ -44,8 +44,8 @@ MOT_SENSOR_HUB_FEATURE_PEDO := true
 MOT_SENSOR_HUB_FEATURE_LA := true
 MOT_SENSOR_HUB_FEATURE_GR := true
 
-# inherit from motorola msm8953-common
--include device/motorola/msm8953-common/BoardConfigCommon.mk
+# inherit from motorola msm8937-common
+-include device/motorola/msm8937-common/BoardConfigCommon.mk
 
 TARGET_SPECIFIC_HEADER_PATH += $(PLATFORM_PATH)/include
 
