@@ -34,8 +34,8 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     libsensorhub \
     motosh \
-    sensorhub.msm8953 \
-    sensors.msm8953 \
+    sensorhub.msm8937 \
+    sensors.msm8937 \
     sensors.rp \
     sensors.tof \
     sensors.tof.vl53l0
@@ -60,5 +60,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/vendor/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
-# Inherit from motorola msm8953-common
-$(call inherit-product, device/motorola/msm8953-common/common.mk)
+# Inherit from motorola msm8937-common
+$(call inherit-product, device/motorola/msm8937-common/common.mk)
