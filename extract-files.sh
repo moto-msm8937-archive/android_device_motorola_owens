@@ -18,7 +18,7 @@
 set -e
 
 export DEVICE=perry
-export DEVICE_COMMON=msm8953-common
+export DEVICE_COMMON=msm8937-common
 export VENDOR=motorola
 
 export DEVICE_BRINGUP_YEAR=2017
