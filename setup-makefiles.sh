@@ -17,10 +17,10 @@
 
 set -e
 
-export DEVICE=perry
-export DEVICE_COMMON=msm8953-common
-export VENDOR=motorola
+DEVICE=perry
+DEVICE_COMMON=msm8937-common
+VENDOR=motorola
 
-export DEVICE_BRINGUP_YEAR=2017
+DEVICE_BRINGUP_YEAR=2017
 
 ./../../$VENDOR/$DEVICE_COMMON/setup-makefiles.sh $@

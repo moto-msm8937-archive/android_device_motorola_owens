@@ -14,27 +14,42 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Inherit from the common Open Source configuration.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, device/motorola/perry/full_perry.mk)
+# Inherit from perry device
+$(call inherit-product, device/motorola/perry/device.mk)
+$(call inherit-product, vendor/motorola/perry/perry-vendor.mk)
 
-# Inherit some common CM stuff.
+# Inherit from the common LineageOS configuration.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Boot animation
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 1920
-
-## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := perry
-PRODUCT_NAME := lineage_perry
-PRODUCT_BRAND := motorola
-PRODUCT_MANUFACTURER := motorola
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
+# Boot animation
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1280
+
+## Device identifier. This must come after all inclusions
+PRODUCT_NAME := lineage_perry
+PRODUCT_BRAND := motorola
+PRODUCT_DEVICE := perry
+PRODUCT_MODEL := Moto E4
+PRODUCT_MANUFACTURER := motorola
+
+TARGET_VENDOR_PRODUCT_NAME := perry_retail
+TARGET_VENDOR_DEVICE_NAME := perry
+TARGET_VENDOR := motorola
+
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="Moto E4"
+    PRIVATE_BUILD_DESC="perry-user 7.1.1 NPQS26.69-64-17 20 release-keys"
+
+BUILD_FINGERPRINT := motorola/perry/perry:7.1.1/NPQS26.69-64-17/20:user/release-keys

@@ -1,3 +1,10 @@
+on post-fs-data
+    #Create directories for Fingerprint
+    mkdir /data/misc/stargate 0770 system system
+    mkdir /data/misc/stargate/bg_estimation 0770 system system
+    mkdir /data/misc/stargate/calib_test 0770 system system
+    mkdir /data/misc/stargate/database 0770 system system
+
 # Start AKM executable
 service ecompassd /system/vendor/bin/akmd09912
     class main

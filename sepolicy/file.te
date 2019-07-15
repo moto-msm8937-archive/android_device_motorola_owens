@@ -1,0 +1,2 @@
+type fpc_socket, file_type;
+type fpc_data_file, file_type;

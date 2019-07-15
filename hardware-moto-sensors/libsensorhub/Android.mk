@@ -30,7 +30,7 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
     LOCAL_CFLAGS += -DDEBUG
 endif
 
-LOCAL_SRC_FILES :=              \
+LOCAL_SRC_FILES := \
     SensorHub.cpp Endian.cpp
 
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
@@ -41,7 +41,7 @@ LOCAL_SHARED_LIBRARIES := liblog libcutils libutils libc
 LOCAL_CFLAGS += -Wall -Wextra
 LOCAL_CXXFLAGS += -Weffc++ -std=c++14
 
-LOCAL_PROPRIETARY_MODULE := true
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 

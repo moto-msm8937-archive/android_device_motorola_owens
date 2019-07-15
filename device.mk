@@ -14,16 +14,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+# Inherit from msm8937-common
+$(call inherit-product, device/motorola/msm8937-common/msm8937.mk)
+
+# Properties
+$(call inherit-product, device/motorola/perry/system_prop.mk)
 
 # Camera
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/msm8917_mot_perry_camera.xml:system/etc/camera/msm8917_mot_perry_camera.xml \
     $(LOCAL_PATH)/configs/camera/imx219_chromatix.xml:system/etc/camera/imx219_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/s5k4h8_chromatix.xml:system/etc/camera/s5k4h8_chromatix.xml \
-	$(LOCAL_PATH)/configs/camera/mot_ov5695_l5695fa0_chromatix.xml:system/etc/camera/mot_ov5695_l5695fa0_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/mot_ov5695_l5695fa0_chromatix.xml:system/etc/camera/mot_ov5695_l5695fa0_chromatix.xml
+
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service_32 \
+    fingerprint.msm8937
+
+# LineageActions
+PRODUCT_PACKAGES += \
+    LineageActions
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.mmi_device.rc \
+    init.qcom_device.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -34,8 +51,8 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     libsensorhub \
     motosh \
-    sensorhub.msm8953 \
-    sensors.msm8953 \
+    sensorhub.msm8937 \
+    sensors.msm8937 \
     sensors.rp \
     sensors.tof \
     sensors.tof.vl53l0
@@ -43,11 +60,3 @@ PRODUCT_PACKAGES += \
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-perry.conf:system/vendor/etc/thermal-engine.conf
-
-# Rootdir
-PRODUCT_PACKAGES += \
-    init.mmi_device.rc \
-    init.qcom_device.rc
-
-# Inherit from motorola msm8953-common
-$(call inherit-product, device/motorola/msm8953-common/common.mk)

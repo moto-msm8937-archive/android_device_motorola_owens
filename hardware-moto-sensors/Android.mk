@@ -179,7 +179,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
         LOCAL_PRELINK_MODULE := false
         LOCAL_MODULE_RELATIVE_PATH := hw
         LOCAL_MODULE_TAGS := optional
-        LOCAL_PROPRIETARY_MODULE := true
+        LOCAL_VENDOR_MODULE := true
         LOCAL_SHARED_LIBRARIES += liblog libcutils libz libdl libutils
         LOCAL_CLANG := true
         LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
@@ -203,7 +203,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
     LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
     LOCAL_SHARED_LIBRARIES := libcutils libc libutils liblog
-    LOCAL_PROPRIETARY_MODULE := true
+    LOCAL_VENDOR_MODULE := true
     LOCAL_MODULE := sensorhub.$(TARGET_BOARD_PLATFORM)
     LOCAL_MODULE_TAGS := optional
 
@@ -220,7 +220,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
     LOCAL_MODULE_TAGS := optional
     LOCAL_CFLAGS := -DLOG_TAG=\"MOTOSH\" -DMODULE_$(SH_MODULE)
     LOCAL_MODULE := motosh
-    LOCAL_PROPRIETARY_MODULE := true
+    LOCAL_VENDOR_MODULE := true
     #LOCAL_CFLAGS+= -D_DEBUG
     LOCAL_CFLAGS += -Wall -Wextra
     # Added by top level make files: -std=gnu++11

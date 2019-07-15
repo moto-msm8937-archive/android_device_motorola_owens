@@ -14,12 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Inherit from msm8937-common
+include device/motorola/msm8937-common/BoardConfigCommon.mk
+
+# Inherit from the proprietary version
+-include vendor/motorola/perry/BoardConfigVendor.mk
+
 DEVICE_PATH := device/motorola/perry
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := perry,perry_retail
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
 # Kernel
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 TARGET_KERNEL_CONFIG := perry_defconfig
 
 # Partitions
@@ -28,6 +38,12 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432    #    16484 * 1024 mmcblk0p38
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456      #   262144 * 1024 mmcblk0p52
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3623878656    #  3538944 * 1024 mmcblk0p53
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 10768858112 # 10516463 * 1024 mmcblk0p54
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+
+# SELinux
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Sensor
 USE_SENSOR_MULTI_HAL := true
@@ -43,11 +59,3 @@ MOT_SENSOR_HUB_FEATURE_LIFT := true
 MOT_SENSOR_HUB_FEATURE_PEDO := true
 MOT_SENSOR_HUB_FEATURE_LA := true
 MOT_SENSOR_HUB_FEATURE_GR := true
-
-# inherit from motorola msm8953-common
--include device/motorola/msm8953-common/BoardConfigCommon.mk
-
-TARGET_SPECIFIC_HEADER_PATH += $(PLATFORM_PATH)/include
-
-# inherit from the proprietary version
--include vendor/motorola/perry/BoardConfigVendor.mk

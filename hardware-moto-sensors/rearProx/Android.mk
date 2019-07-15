@@ -19,22 +19,19 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := sensors.rp
-
-
-
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_PROPRIETARY_MODULE := true
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_CLANG := true
 
-LOCAL_SRC_FILES :=	\
-		sensors.cpp 			\
-		SensorBase.cpp			\
-		ProximitySensor.cpp		\
-		CapSensor.cpp				\
-		InputEventReader.cpp \
-		NativeSensorManager.cpp
+LOCAL_SRC_FILES := \
+    sensors.cpp	\
+    SensorBase.cpp \
+    ProximitySensor.cpp \
+    CapSensor.cpp \
+    InputEventReader.cpp \
+    NativeSensorManager.cpp
 
 LOCAL_SHARED_LIBRARIES += \
     libc \
@@ -42,7 +39,6 @@ LOCAL_SHARED_LIBRARIES += \
     libcutils \
     liblog \
     libdl
-
 
 include $(BUILD_SHARED_LIBRARY)
 

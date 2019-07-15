@@ -51,8 +51,6 @@ LOCAL_CFLAGS += -Wall -Wextra
 LOCAL_CXXFLAGS += -Weffc++ -std=c++14
 
 #LOCAL_PRELINK_MODULE := false
-
-LOCAL_PROPRIETARY_MODULE := true
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
-
