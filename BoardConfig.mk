@@ -18,19 +18,19 @@
 include device/motorola/msm8937-common/BoardConfigCommon.mk
 
 # Inherit from the proprietary version
--include vendor/motorola/perry/BoardConfigVendor.mk
+-include vendor/motorola/owens/BoardConfigVendor.mk
 
-DEVICE_PATH := device/motorola/perry
+DEVICE_PATH := device/motorola/owens
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := perry,perry_retail
+TARGET_OTA_ASSERT_DEVICE := owens,owens_retail
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-TARGET_KERNEL_CONFIG := perry_defconfig
+TARGET_KERNEL_CONFIG := owens_defconfig
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216        #    16384 * 1024 mmcblk0p37
@@ -45,17 +45,3 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-# Sensor
-USE_SENSOR_MULTI_HAL := true
-BOARD_USES_MOT_SENSOR_HUB := true
-BOARD_USES_CAP_SENSOR_SX9310 := true
-MOT_SENSOR_HUB_HW_TYPE_L0 := true
-MOT_AP_SENSOR_HW_REARPROX := true
-MOT_AP_SENSOR_HW_REARPROX_2 := true
-MOT_SENSOR_HUB_HW_AK09912 := true
-MOT_SENSOR_HUB_HW_BMI160 := true
-MOT_SENSOR_HUB_FEATURE_CHOPCHOP := true
-MOT_SENSOR_HUB_FEATURE_LIFT := true
-MOT_SENSOR_HUB_FEATURE_PEDO := true
-MOT_SENSOR_HUB_FEATURE_LA := true
-MOT_SENSOR_HUB_FEATURE_GR := true

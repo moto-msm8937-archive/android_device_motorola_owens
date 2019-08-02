@@ -18,13 +18,12 @@
 $(call inherit-product, device/motorola/msm8937-common/msm8937.mk)
 
 # Properties
-$(call inherit-product, device/motorola/perry/system_prop.mk)
+$(call inherit-product, device/motorola/owens/system_prop.mk)
 
 # Camera
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/msm8917_mot_perry_camera.xml:system/etc/camera/msm8917_mot_perry_camera.xml \
-    $(LOCAL_PATH)/configs/camera/imx219_chromatix.xml:system/etc/camera/imx219_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k4h8_chromatix.xml:system/etc/camera/s5k4h8_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/msm8917_mot_owens_camera.xml:system/etc/camera/msm8917_mot_owens_camera.xml \
+    $(LOCAL_PATH)/configs/camera/ar1335_chromatix.xml:system/etc/camera/ar1335_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/mot_ov5695_l5695fa0_chromatix.xml:system/etc/camera/mot_ov5695_l5695fa0_chromatix.xml
 
 # Fingerprint
@@ -44,19 +43,13 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/configs/sensors/hals.conf:system/vendor/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/vendor/etc/sensors/sensor_def_qcomdev.conf
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    libsensorhub \
-    motosh \
-    sensorhub.msm8937 \
-    sensors.msm8937 \
-    sensors.rp \
-    sensors.tof \
-    sensors.tof.vl53l0
+    android.hardware.sensors@1.0-service
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-perry.conf:system/vendor/etc/thermal-engine.conf
+    $(LOCAL_PATH)/configs/thermal-engine-owens.conf:system/vendor/etc/thermal-engine.conf

@@ -20,8 +20,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
 # Inherit from perry device
-$(call inherit-product, device/motorola/perry/device.mk)
-$(call inherit-product, vendor/motorola/perry/perry-vendor.mk)
+$(call inherit-product, device/motorola/owens/device.mk)
+$(call inherit-product, vendor/motorola/owens/owens-vendor.mk)
 
 # Inherit from the common LineageOS configuration.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -38,19 +38,19 @@ TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1280
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_perry
+PRODUCT_NAME := lineage_owens
 PRODUCT_BRAND := motorola
-PRODUCT_DEVICE := perry
-PRODUCT_MODEL := Moto E4
+PRODUCT_DEVICE := owens
+PRODUCT_MODEL := Moto E4 Plus
 PRODUCT_MANUFACTURER := motorola
 
-TARGET_VENDOR_PRODUCT_NAME := perry_retail
-TARGET_VENDOR_DEVICE_NAME := perry
+TARGET_VENDOR_PRODUCT_NAME := owens_retail
+TARGET_VENDOR_DEVICE_NAME := owens
 TARGET_VENDOR := motorola
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="perry-user 7.1.1 NPQS26.69-64-17 20 release-keys"
+    PRIVATE_BUILD_DESC="owens-user 7.1.1 NPR26.58-25 27 release-keys"
 
-BUILD_FINGERPRINT := motorola/perry/perry:7.1.1/NPQS26.69-64-17/20:user/release-keys
+BUILD_FINGERPRINT := motorola/owens/owens:7.1.1/NPR26.58-25/27:user/release-keys

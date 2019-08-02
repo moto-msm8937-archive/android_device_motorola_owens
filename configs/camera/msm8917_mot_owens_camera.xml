@@ -86,11 +86,11 @@ LensInfo : Information of the lens present in the module.
 <CameraConfigurationRoot>
   <CameraModuleConfig>
     <CameraId>0</CameraId>
-    <SensorName>s5k4h8</SensorName>
-    <EepromName>s5k4h8</EepromName>
-    <ActuatorName>dw9718s</ActuatorName>
+    <SensorName>ar1335</SensorName>
+    <EepromName>dw9763</EepromName>
     <FlashName>pmic</FlashName>
-    <ChromatixName>s5k4h8_chromatix</ChromatixName>
+    <ActuatorName>dw9763</ActuatorName>
+    <ChromatixName>ar1335_chromatix</ChromatixName>
     <ModesSupported>1</ModesSupported>
     <Position>BACK</Position>
     <MountAngle>90</MountAngle>
@@ -101,35 +101,11 @@ LensInfo : Information of the lens present in the module.
       <ComboMode>0</ComboMode>
     </CSIInfo>
     <LensInfo>
-      <FocalLength>3.2</FocalLength>
-      <FNumber>2.2</FNumber>
+      <FocalLength>3.56</FocalLength>
+      <FNumber>2.0</FNumber>
       <TotalFocusDistance>1.9</TotalFocusDistance>
-      <HorizontalViewAngle>59.0</HorizontalViewAngle>
-      <VerticalViewAngle>45.8</VerticalViewAngle>
-      <MinFocusDistance>0.07</MinFocusDistance>
-    </LensInfo>
-  </CameraModuleConfig>
-  <CameraModuleConfig>
-    <CameraId>0</CameraId>
-    <SensorName>imx219</SensorName>
-    <FlashName>pmic</FlashName>
-    <ActuatorName>dw9718s</ActuatorName>
-    <ChromatixName>imx219_chromatix</ChromatixName>
-    <ModesSupported>1</ModesSupported>
-    <Position>BACK</Position>
-    <MountAngle>90</MountAngle>
-    <CSIInfo>
-      <CSIDCore>0</CSIDCore>
-      <LaneMask>0x1F</LaneMask>
-      <LaneAssign>0x4320</LaneAssign>
-      <ComboMode>0</ComboMode>
-    </CSIInfo>
-    <LensInfo>
-      <FocalLength>3.2</FocalLength>
-      <FNumber>2.2</FNumber>
-      <TotalFocusDistance>1.9</TotalFocusDistance>
-      <HorizontalViewAngle>59.0</HorizontalViewAngle>
-      <VerticalViewAngle>45.8</VerticalViewAngle>
+      <HorizontalViewAngle>66.3</HorizontalViewAngle>
+      <VerticalViewAngle>51.7</VerticalViewAngle>
       <MinFocusDistance>0.07</MinFocusDistance>
     </LensInfo>
   </CameraModuleConfig>

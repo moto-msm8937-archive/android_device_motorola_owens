@@ -1,5 +1,5 @@
 #
-# system.prop for perry
+# system.prop for owens
 #
 
 PRODUCT_PROPERTY_OVERRIDES += \

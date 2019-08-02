@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=perry
+DEVICE=owens
 DEVICE_COMMON=msm8937-common
 VENDOR=motorola
 
