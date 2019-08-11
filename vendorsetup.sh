@@ -1,1 +1,1 @@
-add_lunch_combo omni_owens-userdebug
+add_lunch_combo omni_owens-eng

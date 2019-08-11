@@ -14,9 +14,15 @@
 # limitations under the License.
 #
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit from msm8937-common
+$(call inherit-product-if-exists, device/motorola/msm8937-common/msm8937.mk)
 
-$(call inherit-product, device/motorola/owens/full_owens.mk)
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
+PRODUCT_DEVICE := owens
 PRODUCT_NAME := omni_owens
+PRODUCT_BRAND := Motorola
+PRODUCT_MODEL := Moto E4 Plus
+PRODUCT_MANUFACTURER := Motorola

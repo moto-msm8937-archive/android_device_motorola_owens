@@ -16,6 +16,7 @@
 
 DEVICE_PATH := device/motorola/owens
 
-include device/motorola/msm8937-common/BoardConfigCommon.mk
+-include device/motorola/msm8937-common/BoardConfigCommon.mk
 
+# Kernel
 TARGET_KERNEL_CONFIG := owens_defconfig
